@@ -23,7 +23,7 @@ class NewsController extends GetxController {
       errorMessage.value = '';
 
       final response = await _dio.get(
-        'https://api.aurify.ae/device/get-news/66e1cdee9654078fd53141d9',
+        'https://api.aurify.ae/device/get-news/680a4d98a7ef7568049a3a2e',
         options: Options(
           headers: {
             'X-Secret-Key': 'IfiuH/ko+rh/gekRvY4Va0s+aGYuGJEAOkbJbChhcqo=',
