@@ -14,26 +14,29 @@ class BottomNews extends StatelessWidget {
   Widget build(BuildContext context) {
     final NewsController newsController = Get.put(NewsController());
 
-    return SizedBox(
-      height: 50,
-      child: Obx(() {
-        if (newsController.isLoading.value) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: SizedBox(
+        height: 50,
+        child: Obx(() {
+          if (newsController.isLoading.value) {
+            return const NewsTickerBar(
+              height: 50,
+            );
+          }
+      
+          if (newsController.errorMessage.value.isNotEmpty ||
+              newsController.newsList.isEmpty) {
+            return const NewsTickerBar(
+              height: 50,
+            );
+          }
+      
           return const NewsTickerBar(
             height: 50,
           );
-        }
-
-        if (newsController.errorMessage.value.isNotEmpty ||
-            newsController.newsList.isEmpty) {
-          return const NewsTickerBar(
-            height: 50,
-          );
-        }
-
-        return const NewsTickerBar(
-          height: 50,
-        );
-      }),
+        }),
+      ),
     );
   }
 }

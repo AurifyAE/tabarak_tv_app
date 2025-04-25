@@ -79,8 +79,11 @@ class _TickerWidgetState extends State<TickerWidget> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.height,
+      decoration: BoxDecoration(
+borderRadius: BorderRadius.circular(15),
       color: kCsecondary,
+      ),
+      height: widget.height,
       child: Row(
         children: [
           // Left side - PULPARAMBIL NEWS
@@ -95,7 +98,10 @@ class _TickerWidgetState extends State<TickerWidget> with SingleTickerProviderSt
   Widget _buildTitleSection() {
     return Container(
       width: 200,
+      decoration: BoxDecoration(
+borderRadius: BorderRadius.circular(15), 
       color: kCaccent, // Gold color
+      ),
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Text(
@@ -114,6 +120,7 @@ class _TickerWidgetState extends State<TickerWidget> with SingleTickerProviderSt
         child: Container(
           key: _contentKey,
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
           alignment: Alignment.centerLeft,
           child: Row(
             children: [

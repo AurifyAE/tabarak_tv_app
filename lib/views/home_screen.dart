@@ -62,6 +62,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: Container(
                 color: Colors.redAccent,
+                child: BottomNews(),
               ),
             ),
           ],
