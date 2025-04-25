@@ -29,12 +29,11 @@ TextStyle kSstitle = const TextStyle(
   fontWeight: FontWeight.bold,
   color: kCprimary,
 );
-TextStyle kSgoldtitle =TextStyle(
+TextStyle kSgoldtitle = TextStyle(
   fontSize: 14.sp,
   fontWeight: FontWeight.bold,
 );
-TextStyle kSgoldvalue =  TextStyle(
-                  fontSize: 16.sp,  
-                  fontWeight: FontWeight.bold,
-                );
-
+TextStyle kSgoldvalue = TextStyle(
+  fontSize: 16.sp,
+  fontWeight: FontWeight.bold,
+);

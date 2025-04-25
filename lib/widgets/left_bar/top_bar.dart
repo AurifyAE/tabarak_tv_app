@@ -16,9 +16,12 @@ class TopBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(
-            klogo,
-            height: 8.w,
+          Padding(
+            padding: const EdgeInsets.only(left: 20,top: 10),
+            child: Image.asset(
+              klogo,
+              height: 8.w,
+            ),
           ),
           DateTimeDisplay(),
           // WorldClockDisplay()

@@ -1,7 +1,9 @@
  String klogo = 'assets/tabarak_logo.png';
 //  String kicon = 'assets/PulparambilIcon.png';
  String kerror = 'assets/mobileError.png';
-//  String kbg = 'assets/background.png';
+ String kbr1 = 'assets/image1.jpg';
+ String kbr2 = 'assets/image2.jpg';
+ String kbr3 = 'assets/image3.jpg'; 
 //  String kgold = 'assets/goldBar.png';
 //  String ksilver = 'assets/silverBar.png';
  String knointernet = 'assets/noInternet.png';

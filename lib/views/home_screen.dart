@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:tabarak_tv/widgets/center_view/commodities/commodities_rate.dart';
+import 'package:tabarak_tv/widgets/center_view/image_slider.dart';
 import 'package:tabarak_tv/widgets/center_view/spot_rate/live_rate.dart';
 
 import '../core/utils/app_assets.dart';
@@ -57,11 +58,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(80, 80, 80, 0),
-                        child: Container(
-                          height: 250, 
-                          color: Colors.blueAccent,
-                        
-                        ),
+                        child: ImageSlider()
                       ),
                       CommoditiesList(),
                     ],
