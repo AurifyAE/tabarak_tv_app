@@ -36,14 +36,14 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Container(
-                            color: Colors.orangeAccent,
+                            // color: Colors.orangeAccent,
                             child: TopBar(),
                           ),
                         ),
                         Expanded(
                           flex: 4,
                           child: Container(
-                            color: Colors.deepPurpleAccent,
+                            // color: Colors.deepPurpleAccent,
                             child: LiveRate(),
                           ),
                         ),
@@ -53,7 +53,20 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: Container(
-                      color: const Color.fromARGB(255, 9, 255, 0),
+                      // color: const Color.fromARGB(255, 9, 255, 0),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(80, 80, 80, 0),
+                            child: Container(
+                              height: 300, 
+                              // color: Colors.blueAccent,
+                            
+                            ),
+                          ),
+                          CommoditiesList(),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -61,7 +74,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                color: Colors.redAccent,
+                // color: Colors.redAccent,
                 child: BottomNews(),
               ),
             ),

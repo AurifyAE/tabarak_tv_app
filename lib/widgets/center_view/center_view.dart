@@ -31,7 +31,7 @@ class CenterView extends GetView<ConnectivityController> {
   Widget _buildConnectedView() {
     return Row(
       children: const [
-        CommoditiesRate(),
+        // CommoditiesRate(),
         LiveRate(),
       ],
     );
