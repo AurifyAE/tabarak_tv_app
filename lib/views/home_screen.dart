@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:tabarak_tv/widgets/center_view/commodities/commodities_rate.dart';
 import 'package:tabarak_tv/widgets/center_view/spot_rate/live_rate.dart';
 
@@ -15,71 +16,67 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kCprimary,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(kbg),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              flex: 8,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      // mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            // color: Colors.orangeAccent,
-                            child: TopBar(),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            // color: Colors.deepPurpleAccent,
-                            child: LiveRate(),
-                          ),
-                        ),
-                        // CommoditiesRate.buildFooter
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      // color: const Color.fromARGB(255, 9, 255, 0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(80, 80, 80, 0),
-                            child: Container(
-                              height: 300, 
-                              // color: Colors.blueAccent,
-                            
-                            ),
-                          ),
-                          CommoditiesList(),
-                        ],
+      backgroundColor: kCaccent,
+      body: Column(
+        children: [
+          Expanded(
+            flex: 8,
+            child: Row( 
+              children: [
+                Expanded(
+                  child: Column(
+                    // mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: TopBar(),
                       ),
-                    ),
+                      Expanded(
+                        flex: 4,
+                        child: LiveRate(),
+                      ),
+                      Container(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              // color: const Color(0xFF3C4226), // Dark green footer
+              child: Center(
+                child: Text(
+                  'Powered by www.aurify.ae',
+                  style: TextStyle( 
+                    color: Colors.white,
+                    fontSize: 12.sp,
                   ),
-                ],
+                ),
               ),
             ),
-            Expanded(
-              child: Container(
-                // color: Colors.redAccent,
-                child: BottomNews(),
-              ),
+                      // CommoditiesRate.buildFooter
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(80, 80, 80, 0),
+                        child: Container(
+                          height: 250, 
+                          color: Colors.blueAccent,
+                        
+                        ),
+                      ),
+                      CommoditiesList(),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: Container(
+              // color: Colors.redAccent,
+              child: BottomNews(),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -14,15 +14,15 @@ TextStyle kSconnectionError = const TextStyle(
 );
 TextStyle kSnewsHedline = const TextStyle(
   fontSize: 15,
-  fontWeight: FontWeight.w500,
-  color: kCprimary,
+  fontWeight: FontWeight.w800,
+  color: kCsecondary,
   letterSpacing: 0.5,
   height: 1.2,
 );
 TextStyle kSnewsBar = const TextStyle(
-  fontSize: 16,
-  fontWeight: FontWeight.bold,
-  color: kCsecondary,
+  fontSize: 20,
+  fontWeight: FontWeight.w900,
+  color: kCprimary,
 );
 TextStyle kSstitle = const TextStyle(
   fontSize: 16,

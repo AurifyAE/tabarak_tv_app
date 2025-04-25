@@ -81,7 +81,7 @@ class _TickerWidgetState extends State<TickerWidget> with SingleTickerProviderSt
     return Container(
       decoration: BoxDecoration(
 borderRadius: BorderRadius.circular(15),
-      color: kCsecondary,
+      color: kCaccent1,
       ),
       height: widget.height,
       child: Row(
@@ -97,10 +97,10 @@ borderRadius: BorderRadius.circular(15),
 
   Widget _buildTitleSection() {
     return Container(
-      width: 200,
+      width: 230,
       decoration: BoxDecoration(
 borderRadius: BorderRadius.circular(15), 
-      color: kCaccent, // Gold color
+      color: kCaccent2, // Gold color
       ),
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -120,7 +120,7 @@ borderRadius: BorderRadius.circular(15),
         child: Container(
           key: _contentKey,
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),),
           alignment: Alignment.centerLeft,
           child: Row(
             children: [

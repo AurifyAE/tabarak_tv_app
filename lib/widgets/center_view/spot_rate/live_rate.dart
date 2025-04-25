@@ -1,78 +1,10 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:sizer/sizer.dart';
 
-// import '../../../controllers/live_controller.dart';
-// import '../../../controllers/live_rate_controller.dart';
-// import 'live_rate_card.dart';
-
-// class LiveRate extends StatelessWidget {
-//   const LiveRate({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // Initialize controllers
-//     // final liveRateController = Get.find<LiveRateController>();
-//     final liveController = Get.find<LiveController>();
-    
-//     // Ensure we fetch spot rates if needed
-//     if (liveController.spotRateModel.value == null && !liveController.isLoading.value) {
-//       liveController.getSpotRate();
-//     }
-    
-//     return Expanded(
-//       flex: 2,
-//       child: Padding(
-//         padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
-//         child: Column(
-//           children: [
-//             Padding(
-//               padding: const EdgeInsets.all(8.0),
-//               child: Text(
-//                 'Spot rate (\$)',
-//                 style: TextStyle(
-//                   fontSize: 18.sp,
-//                   fontWeight: FontWeight.bold,
-//                   color: Colors.white,
-//                 ),
-//               ),
-//             ),
-//             Expanded(
-//               child: Padding(
-//                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-//                 child: LiveRateCard(
-//                   commodityName: 'Gold', 
-//                   commodityImage: Image.asset('assets/images/goldBar.png'),
-//                   bidPrice: 0.0,
-//                   askPrice: 0.0,
-//                 ),
-//               ),
-//             ),
-//             Expanded(
-//               child: Padding(
-//                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-//                 child: LiveRateCard(
-//                   commodityName: 'Silver', 
-//                   commodityImage: Image.asset('assets/images/silverBar.png'),
-//                   bidPrice: 0.0,
-//                   askPrice: 0.0,
-//                 ),
-//               ),
-//             ),
-//             SizedBox(height: 1.w)  
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
+import 'package:tabarak_tv/core/utils/app_colors.dart';
 
 import '../../../controllers/live_controller.dart';
 import '../../../controllers/live_rate_controller.dart';
@@ -98,34 +30,32 @@ class LiveRate extends StatelessWidget {
       liveRateController.initializeConnection();
     }
     
-    return Expanded(
-      flex: 2,
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: Container(
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            color: const Color(0xFFBDB394), // Beige background color
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.3),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
-            ],
-            border: Border.all(
-              color: const Color(0xFF8D7E5F),
-              width: 2,
-            ),
-          ),
-          child: Column(
-            children: [
-              // Header
-              Container(
+    return Padding(
+      padding: EdgeInsets.fromLTRB(30, 30, 0, 20),
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          color: kCaccent1,  // Beige background color
+          borderRadius: BorderRadius.circular(16),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.black.withOpacity(0.3),
+          //     blurRadius: 10,
+          //     offset: const Offset(0, 4),
+          //   ),
+          // ],
+         
+        ),
+        child: Column(
+          children: [
+            // Header
+            Padding(
+              padding:  EdgeInsets.all(12),
+              child: Container(
                 padding: EdgeInsets.symmetric(vertical: 8),
-                decoration: const BoxDecoration(
-                  color: Color(0xFF8D7E5F), // Brown header color
+                decoration: BoxDecoration(
+                  color: kCaccent2, 
+                  borderRadius:  BorderRadius.circular(15)                                                                                                                                                                      // Brown header color
                 ),
                 child: Center(
                   child: Text(
@@ -138,131 +68,140 @@ class LiveRate extends StatelessWidget {
                   ),
                 ),
               ),
-              
-              // Price Table
-              Expanded(
-                child: Column(
-                  children: [
-                    // Column Headers
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-                      child: Row(
-                        children: [
-                          Spacer(flex: 3),
-                          Expanded(
-                            flex: 5,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'BID ',
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+            ),
+            
+            // Price Table
+            Expanded(
+              child: Column(
+                children: [
+                  // Column Headers
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+                    child: Row(
+                      children: [
+                        Spacer(flex: 3),
+                        Expanded(
+                          flex: 5,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'BID ',
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                Container(
-                                  width: 20,
-                                  height: 20,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.grey[300],
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      '\$',
-                                      style: TextStyle(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                              ),
+                              Container(
+                                width: 30,
+                                height: 30, 
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: kCaccent2,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '\$',
+                                    style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: kCaccent1
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          Expanded(
-                            flex: 5,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'ASK ',
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'ASK ',
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                Container(
-                                  width: 20,
-                                  height: 20,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.grey[300],
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      '\$',
-                                      style: TextStyle(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                              ),
+                              Container(
+                                width: 30,
+                                height: 30, 
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: kCaccent2,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '\$',
+                                    style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: kCaccent1
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    
-                    // Gold Row
-                    Expanded(
-                      child: SpotRateRow(
-                        commodityName: 'Gold',
-                        metalName: 'GOLD',
-                        useRedBackground: true,
-                      ),
-                    ),
-                    
-                    // Divider
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Divider(
-                        color: Colors.black.withOpacity(0.2),
-                        height: 1,
-                      ),
-                    ),
-                    
-                    // Silver Row
-                    Expanded(
-                      child: SpotRateRow(
-                        commodityName: 'Silver',
-                        metalName: 'SILVER',
-                        useRedBackground: false,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              
-              // Footer
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                color: const Color(0xFF3C4226), // Dark green footer
-                child: Center(
-                  child: Text(
-                    'Powered by www.aurify.ae',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 9.sp,
+                        ),
+                      ],
                     ),
                   ),
-                ),
+                  
+                  // Gold Row
+                  Expanded(
+                    child: SpotRateRow(
+                      commodityName: 'Gold',
+                      metalName: 'GOLD',
+                      useRedBackground: true,
+                    ),
+                  ),
+                  
+                  // Divider
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Divider(
+                      color: Colors.black,
+                      height: 1,
+                    ),
+                  ),
+                  
+                  // Silver Row
+                  Expanded(
+                    child: SpotRateRow(
+                      commodityName: 'Silver',
+                      metalName: 'SILVER',
+                      useRedBackground: false,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                    child: Divider(
+                      color: Colors.black,
+                      height: 1,
+                    ),
+                  ), 
+                ],
               ),
-            ],
-          ),
+            ),
+            
+            // Footer
+            // Container(
+            //   padding: EdgeInsets.symmetric(vertical: 5),
+            //   color: const Color(0xFF3C4226), // Dark green footer
+            //   child: Center(
+            //     child: Text(
+            //       'Powered by www.aurify.ae',
+            //       style: TextStyle(
+            //         color: Colors.white,
+            //         fontSize: 9.sp,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+          ],
         ),
       ),
     );
@@ -430,15 +369,15 @@ class SpotRatePriceBox extends StatelessWidget {
       }
       
       return Container(
-        width: 100.w,
-        height: 36,
+        width: 10.w,
+        height: 50,
         margin: EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(4),
           border: Border.all(
-            color: Colors.black.withOpacity(0.2),
-            width: 1,
+            color: Colors.black,
+            width: 3,
           ),
         ),
         child: Center(
@@ -512,7 +451,7 @@ class PreviousPriceRow extends StatelessWidget {
         color: const Color(0xFFE8E8D7), // Light beige color for the price indicator
         borderRadius: BorderRadius.circular(4),
         border: Border.all(
-          color: Colors.black.withOpacity(0.2),
+          color: Colors.black,
           width: 1,
         ),
       ),
@@ -523,13 +462,13 @@ class PreviousPriceRow extends StatelessWidget {
           Icon(
             isHigher ? Icons.arrow_upward : Icons.arrow_downward,
             color: isHigher ? Colors.green : Colors.red,
-            size: 12,
+            size: 15,
           ),
           SizedBox(width: 4),
           Text(
             price.toStringAsFixed(price >= 100 ? 2 : 3),
             style: TextStyle(
-              fontSize: 11.sp,
+              fontSize: 12.sp,
               fontWeight: FontWeight.w500,
               color: Colors.black87,
             ),

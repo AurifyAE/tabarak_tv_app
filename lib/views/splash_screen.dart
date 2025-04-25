@@ -13,7 +13,7 @@ class SplashScreen extends GetView<SplashController> {
     return Scaffold(
       backgroundColor: kCsecondary,
       body: Center(
-        child: Image.asset(kicon, height: 400),
+        child: Image.asset(klogo, height: 400),
       ),
     );
   }

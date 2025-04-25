@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:tabarak_tv/core/utils/app_colors.dart';
 
 import '../../../controllers/live_controller.dart';
 import '../../../controllers/live_rate_controller.dart';
@@ -18,7 +19,7 @@ class CommoditiesList extends StatelessWidget {
       padding: EdgeInsets.all(3.w),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFFBEA369), // Base gold color for background
+          color: kCaccent1, // Base gold color for background
           borderRadius: BorderRadius.circular(15),
           border: Border.all(
             color: Colors.white.withOpacity(0.3),
@@ -33,7 +34,7 @@ class CommoditiesList extends StatelessWidget {
           return isLoading
               ? const Center(
                   child: CircularProgressIndicator(
-                    color: Color(0xFF7D6B42),
+                    color: kCaccent2,
                   ),
                 )
               : _buildCommodityList();
@@ -134,68 +135,81 @@ class CommoditiesList extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           // Header
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 1.5.h),
-            decoration: const BoxDecoration(
-              color: Color(0xFF91754B), // Darker gold for header
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 4.w),
+          Padding(
+            padding:  EdgeInsets.all(12),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 1.5.h),
+              decoration:  BoxDecoration(
+                color: kCaccent2, 
+                borderRadius:BorderRadius.circular(15) // Darker gold for header
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 4.w),
+                      child: Text(
+                        'COMMODITY',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
                     child: Text(
-                      'COMMODITY',
+                      'UNIT',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 14.sp,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Text(
-                    'UNIT',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.sp,
+                  Expanded(
+                    child: Text(
+                      'ASK (AED)',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
-                ),
-                Expanded(
-                  child: Text(
-                    'ASK (AED)',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.sp,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           
           // List of gold purities
-          ListView.builder(
-            padding: EdgeInsets.zero,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: goldPurities.length,
-            itemBuilder: (context, index) {
-              final item = goldPurities[index];
-              return _buildGoldRow(
-                item['name'] as String,
-                item['karat'] as String,
-                item['unit'] as String,
-                _formatPrice(item['price'] as double),
-              );
-            },
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Container(
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15)
+              ),
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: goldPurities.length,
+                itemBuilder: (context, index) {
+                  final item = goldPurities[index];
+                  return _buildGoldRow(
+                    item['name'] as String,
+                    item['karat'] as String,
+                    item['unit'] as String,
+                    _formatPrice(item['price'] as double),
+                  );
+                },
+              ),
+            ),
           ),
         ],
       ),
@@ -210,7 +224,7 @@ class CommoditiesList extends StatelessWidget {
     return Container(
       height: 7.h,
       decoration: const BoxDecoration(
-        color: Color(0xFFAA9366), // Lighter gold for rows
+        color: kCaccent2, // Lighter gold for rows
       ),
       child: Row(
         children: [

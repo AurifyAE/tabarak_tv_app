@@ -11,21 +11,18 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 3,
-      child: Container(
-        height: 150,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              klogo,
-              height: 8.w,
-            ),
-            DateTimeDisplay(),
-            // WorldClockDisplay()
-          ],
-        ),
+    return Container(
+      height: 150,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.asset(
+            klogo,
+            height: 8.w,
+          ),
+          DateTimeDisplay(),
+          // WorldClockDisplay()
+        ],
       ),
     );
   }
